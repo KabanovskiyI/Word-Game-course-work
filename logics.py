@@ -80,6 +80,19 @@ class Search:
         global Array
         global history_theme
         
+        if len(Global_array) > 0:
+            x = len(Global_array[-1]) - 1
+            last_word = Global_array[-1]
+            first_letter = self.input_word[0]
+
+            while x >= 0:
+                if first_letter == last_word[x].title():
+                    break
+                else:
+                    x -= 1
+            if x < 0:
+                return 'Літери з якої починається ваше слово не має в минулому слові! Введіть інше:'
+        
         if len(history_theme) > 1:
             if self.theme == history_theme[-2]:
                 history_theme.append(self.theme)
