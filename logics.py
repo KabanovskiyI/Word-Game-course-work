@@ -79,7 +79,11 @@ class Search:
         global Global_array
         global Array
         global history_theme
-        
+
+        if len(history_theme) > 0:
+            if history_theme[-1] != self.theme:
+                Global_array = []
+                
         if len(Global_array) > 0:
             x = len(Global_array[-1]) - 1
             last_word = Global_array[-1]
