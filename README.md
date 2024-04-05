@@ -1,0 +1,1 @@
+Telegram bot for word games. Rules of the game - enter the word on the letter with which the past began. This bot has only the Ukrainian language, but the code can work with your favorite languages, you just need to change the database with words. Each new word is written from a new line.
