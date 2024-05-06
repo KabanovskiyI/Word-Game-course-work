@@ -90,7 +90,7 @@ class Search:
             first_letter = self.input_word[0]
 
             while x >= 0:
-                if first_letter == last_word[x].title():
+                if first_letter.title() == last_word[x].title():
                     break
                 else:
                     x -= 1
@@ -100,17 +100,7 @@ class Search:
         if len(history_theme) > 1:
             if self.theme == history_theme[-2]:
                 history_theme.append(self.theme)
-                if len(Global_array) > 0:
-                    index = len(Global_array) - 1
-                    word_in_global = Global_array[index]
-                    i = 1
-
-                    while self.input_word[0].lower() != word_in_global[-i].lower():
-                        i += 1
-
-                    return self.check_true(self.input_word)  
-                else:
-                    return self.check_true(self.input_word)
+                return self.check_true(self.input_word) 
             else:
                 return self.check_true(self.input_word) 
         else:
