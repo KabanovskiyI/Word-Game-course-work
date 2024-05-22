@@ -54,7 +54,10 @@ class Search:
                 Global_array.append(input_word.title())
                 Global_array.append(ret)
                 Array.remove(ret)
-                return ret
+                if x <= -2:
+                    return 'Слова на останню букву скінчилися, тому було взято попередню:\n' + ret
+                else:     
+                    return ret
             else:
                 ret = random.choice(matching_words)
 
@@ -69,11 +72,14 @@ class Search:
                 Global_array.append(input_word.title())
                 Global_array.append(ret)
                 Array.remove(ret)
-                return ret
+
+                if x <= -2:
+                    return 'Слова на останню букву скінчилися, тому було взято попередню:\n' + ret
+                else:     
+                    return ret
         else:
             return 'Слово правильно введене ?' + '\n' + 'Натисніть команду:' + '\n' + '/notfound'
-
-
+            
     def Search(self):
         self.open_file(self.database)
         global Global_array
