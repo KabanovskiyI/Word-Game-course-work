@@ -43,7 +43,7 @@ class Search:
             while ret in Global_array:
                 x -= 1
                 if x < -len(input_word):
-                    break
+                    return 'Ви молодець! Слів в БД не залишилося.\nВИ ПЕРЕМОГЛИ!!!'
                 last_letter = input_word[x].lower()
                 matching_words = [word for word in Array if word.lower().startswith(last_letter)]
                 ret = random.choice(matching_words)
