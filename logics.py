@@ -37,46 +37,25 @@ class Search:
             x = -1
             last_letter = input_word[x].lower()
             matching_words = [word for word in Array if word.lower().startswith(last_letter)]
-            
-            if not matching_words:
-                x = -2
+
+            ret = random.choice(matching_words)
+
+            while ret in Global_array:
+                x -= 1
+                if x < -len(input_word):
+                    break
                 last_letter = input_word[x].lower()
                 matching_words = [word for word in Array if word.lower().startswith(last_letter)]
                 ret = random.choice(matching_words)
-                while ret in Global_array:
-                    x -= 1
-                    if x < -len(input_word):
-                        break
-                    last_letter = input_word[x].lower()
-                    matching_words = [word for word in Array if word.lower().startswith(last_letter)]
-                    ret = random.choice(matching_words)
 
-                Global_array.append(input_word.title())
-                Global_array.append(ret)
-                Array.remove(ret)
-                if x <= -2:
-                    return 'Слова на останню букву скінчилися, тому було взято попередню:\n' + ret
-                else:     
-                    return ret
-            else:
-                ret = random.choice(matching_words)
+            Global_array.append(input_word.title())
+            Global_array.append(ret)
+            Array.remove(ret)
 
-                while ret in Global_array:
-                    x -= 1
-                    if x < -len(input_word):
-                        break
-                    last_letter = input_word[x].lower()
-                    matching_words = [word for word in Array if word.lower().startswith(last_letter)]
-                    ret = random.choice(matching_words)
-
-                Global_array.append(input_word.title())
-                Global_array.append(ret)
-                Array.remove(ret)
-
-                if x <= -2:
-                    return 'Слова на останню букву скінчилися, тому було взято попередню:\n' + ret
-                else:     
-                    return ret
+            if x <= -2:
+                return 'Слова на останню букву скінчилися, тому було взято попередню:\n' + ret
+            else:     
+                return ret
         else:
             return 'Слово правильно введене ?' + '\n' + 'Натисніть команду:' + '\n' + '/notfound'
             
