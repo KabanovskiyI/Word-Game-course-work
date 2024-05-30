@@ -37,16 +37,20 @@ class Search:
             x = -1
             last_letter = input_word[x].lower()
             matching_words = [word for word in Array if word.lower().startswith(last_letter)]
+            
+            if len(matching_words) != 0:
+                ret = random.choice(matching_words)
+            else:
+                ret = ''
 
-            ret = random.choice(matching_words)
-
-            while ret in Global_array:
+            while ret in Global_array or len(matching_words) == 0:
                 x -= 1
                 if x < -len(input_word):
                     return 'Ви молодець! Слів в БД не залишилося.\nВИ ПЕРЕМОГЛИ!!!'
                 last_letter = input_word[x].lower()
                 matching_words = [word for word in Array if word.lower().startswith(last_letter)]
-                ret = random.choice(matching_words)
+                if len(matching_words) != 0:
+                    ret = random.choice(matching_words)
 
             Global_array.append(input_word.title())
             Global_array.append(ret)
